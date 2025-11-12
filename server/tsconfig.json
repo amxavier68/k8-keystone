@@ -6,6 +6,8 @@
     "baseUrl": "./src",
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "paths": {
       "@controllers/*": ["server/src/controllers/*"],
       "@services/*": ["server/src/services/*"],

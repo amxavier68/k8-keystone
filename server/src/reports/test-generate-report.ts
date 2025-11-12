@@ -1,6 +1,6 @@
 import fs from "fs";
 
-import { ReportService } from "@services/reportService";
+import { ReportService } from "../services/reportService.ts";
 
 (async () => {
   const reportService = new ReportService();
@@ -18,7 +18,7 @@ import { ReportService } from "@services/reportService";
     ]
   };
 
-  const pdfBuffer = await reportService.generatePDF(report);
+  const pdfBuffer = await reportService.generateReport(report);
   fs.writeFileSync("test-audit-report.pdf", pdfBuffer);
   console.log("✅ Report generated: test-audit-report.pdf");
 })();
