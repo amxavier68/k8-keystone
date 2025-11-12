@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@controllers/*": ["server/src/controllers/*"],
+      "@services/*": ["server/src/services/*"],
+      "@reports/*": ["reports/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

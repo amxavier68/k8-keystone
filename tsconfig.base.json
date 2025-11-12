@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "allowJs": false,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+       "@k8/*": ["libs/*"],
+       "@k8/seo": ["libs/seo-ai"]
+    },
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "include": ["client", "server", "libs", "ai-core", "wp-plugin"],
+  "exclude": ["node_modules", "deploy"]
+}
+

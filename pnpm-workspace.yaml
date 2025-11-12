@@ -1,0 +1,6 @@
+packages:
+  - 'client'
+  - 'server'
+  - 'ai-core'
+  - 'wp-plugin'
+  - 'libs/*'
