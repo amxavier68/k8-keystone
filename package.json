@@ -4,23 +4,20 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Monorepo orchestrator for Kollabor8’s AI + MERN + WP stack",
-  "workspaces": [
-    "client",
-    "server",
-    "ai-core",
-    "wp-plugin"
-  ],
   "scripts": {
     "dev": "concurrently -n client,server,ai-core \"pnpm --filter client dev\" \"pnpm --filter server dev\" \"pnpm --filter ai-core dev\"",
     "build": "pnpm -r run build",
     "lint": "pnpm -r run lint",
     "clean": "rimraf node_modules && pnpm -r exec rimraf node_modules dist",
     "docker:up": "docker-compose -f deploy/docker-compose.yml up --build",
-    "docker:down": "docker-compose -f deploy/docker-compose.yml down"
+    "docker:down": "docker-compose -f deploy/docker-compose.yml down",
+    "dev:audit": "ts-node --esm server/src/reports/saveSeoAuditFromScrape.ts",
+    "build:audit": "tsc -p server/tsconfig.json && node server/dist/reports/saveSeoAuditFromScrape.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/express": "^5.0.5",
+    "@types/mongoose": "^5.11.97",
     "@types/node": "^24.10.0",
     "@types/pdfkit": "^0.17.3",
     "@types/react": "^19.2.3",
@@ -33,11 +30,13 @@
     "globals": "^16.5.0",
     "rimraf": "^6.0.0",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.3"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
+    "mongoose": "^8.19.3",
     "pdfkit": "^0.17.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"

@@ -1,3 +1,5 @@
+import { seoScraper } from "../utils/seoScraper.ts";
+
 export class ReportService {
   async generateReport(data: Record<string, any>): Promise<string> {
     console.log("Generating report with data:", data);
@@ -10,6 +12,12 @@ export class ReportService {
 
   async getReportById(id: string): Promise<string> {
     return `Report details for ID: ${id}`;
+  }
+
+  async generateAioReport(url: string) {
+    const summary = await seoScraper(url);
+    console.log("SEO Summary:", summary);
+    return summary;
   }
 }
 
